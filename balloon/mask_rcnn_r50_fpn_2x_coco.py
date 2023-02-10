@@ -176,7 +176,8 @@ data = dict(
             dict(
                 type='Collect',
                 keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks'])
-        ]),
+        ],
+        classes = ('balloon',)),
     val=dict(
         type='CocoDataset',
         ann_file='data/balloon/val/via_region_data_coco.json',
@@ -199,7 +200,8 @@ data = dict(
                     dict(type='ImageToTensor', keys=['img']),
                     dict(type='Collect', keys=['img'])
                 ])
-        ]),
+        ],
+        classes = ('balloon',)),
     test=dict(
         type='CocoDataset',
         ann_file='data/balloon/val/via_region_data_coco.json',
@@ -222,16 +224,12 @@ data = dict(
                     dict(type='ImageToTensor', keys=['img']),
                     dict(type='Collect', keys=['img'])
                 ])
-        ]))
+        ],
+        classes = ('balloon',)))
 evaluation = dict(metric=['bbox', 'segm'])
 optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
-lr_config = dict(
-    policy='step',
-    warmup='linear',
-    warmup_iters=500,
-    warmup_ratio=0.001,
-    step=[16, 22])
+lr_config = None
 runner = dict(type='EpochBasedRunner', max_epochs=24)
 checkpoint_config = dict(interval=1)
 log_config = dict(interval=10, hooks=[dict(type='TextLoggerHook')])
