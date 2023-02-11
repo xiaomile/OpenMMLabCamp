@@ -6,5 +6,5 @@
  ## mmdetection
  ### 基础作业
     log 和 config 在balloon目录下
-    模型文件 链接：https://pan.baidu.com/s/1h6-PgvOSsU1iCJhfssW-1A 提取码：i9ye
-    特效制作后的视频文件 链接：https://pan.baidu.com/s/1CRmw3hFXegkMA46gkUJBdQ 提取码：hjk2
+    模型文件 链接：https://pan.baidu.com/s/1smkYmBZhVVfGEMEUusl48A 提取码：bx3a
+    特效制作后的视频文件 链接：https://pan.baidu.com/s/1niWMj6XERSnNWxAyQ1Ix6Q 提取码：d2jw
