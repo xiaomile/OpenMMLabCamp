@@ -9,8 +9,11 @@ model = dict(
         norm_cfg=dict(type='BN', requires_grad=True),
         norm_eval=True,
         style='pytorch',
-        init_cfg=dict(type='Pretrained', checkpoint='/HOME/scz0bbt/run/mmdetection/checkpoints/resnet50-0676ba61.pth')
-        ),
+        init_cfg=dict(
+            type='Pretrained',
+            checkpoint=
+            '/HOME/scz0bbt/run/mmdetection/checkpoints/resnet50-0676ba61.pth')
+    ),
     neck=dict(
         type='FPN',
         in_channels=[256, 512, 1024, 2048],
@@ -177,7 +180,7 @@ data = dict(
                 type='Collect',
                 keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks'])
         ],
-        classes = ('balloon',)),
+        classes=('balloon', )),
     val=dict(
         type='CocoDataset',
         ann_file='data/balloon/val/via_region_data_coco.json',
@@ -201,7 +204,7 @@ data = dict(
                     dict(type='Collect', keys=['img'])
                 ])
         ],
-        classes = ('balloon',)),
+        classes=('balloon', )),
     test=dict(
         type='CocoDataset',
         ann_file='data/balloon/val/via_region_data_coco.json',
@@ -225,12 +228,12 @@ data = dict(
                     dict(type='Collect', keys=['img'])
                 ])
         ],
-        classes = ('balloon',)))
+        classes=('balloon', )))
 evaluation = dict(metric=['bbox', 'segm'])
-optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0001)
+optimizer = dict(type='SGD', lr=0.0005, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 lr_config = None
-runner = dict(type='EpochBasedRunner', max_epochs=24)
+runner = dict(type='EpochBasedRunner', max_epochs=40)
 checkpoint_config = dict(interval=1)
 log_config = dict(interval=10, hooks=[dict(type='TextLoggerHook')])
 custom_hooks = [dict(type='NumClassCheckHook')]
@@ -242,3 +245,6 @@ workflow = [('train', 1)]
 opencv_num_threads = 0
 mp_start_method = 'fork'
 auto_scale_lr = dict(enable=False, base_batch_size=16)
+work_dir = 'work_dir'
+auto_resume = False
+gpu_ids = [0]
