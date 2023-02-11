@@ -2,10 +2,12 @@ import cv2
 import mmcv
 import numpy as np
 import torch
+import time
 
 from mmdet.apis import init_detector, inference_detector
 
-score_thr = 0.05
+start_time = time.time()
+score_thr = 0.2
 video_reader = mmcv.VideoReader("test_video.mp4")
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 video_writer = cv2.VideoWriter(
@@ -15,7 +17,7 @@ print(len(video_reader))
 
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
-model = init_detector('mask_rcnn_r50_fpn_2x_coco.py', 'epoch_14.pth', device=device)
+model = init_detector('mask_rcnn_r50_fpn_2x_coco.py', 'epoch_18.pth', device=device)
 
 for frame in video_reader:
     result = inference_detector(model, frame)
@@ -56,3 +58,4 @@ for frame in video_reader:
 
 video_writer.release()
 cv2.destroyAllWindows()
+print(time.time()-start_time)
