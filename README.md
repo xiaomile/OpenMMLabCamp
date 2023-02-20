@@ -14,4 +14,5 @@
  ### 基础作业
     模型：deeplabv3+
     log 和 config 在clothes目录下
-    模型文件 链接：https://pan.baidu.com/s/1Q4fUoFEzF7eraSuYO9ZP_g 提取码：9ch4
+    模型文件 链接：https://pan.baidu.com/s/1uTO8YpFiyMuTEUmxEWnyew 提取码：sz15
+    特效文件 链接：https://pan.baidu.com/s/1dZHUXTjdndORZo5lXRYzbg 提取码：2hmr
