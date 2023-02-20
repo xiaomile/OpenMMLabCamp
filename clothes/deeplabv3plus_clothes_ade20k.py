@@ -42,7 +42,7 @@ model = dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.4)),
     train_cfg=dict(),
     test_cfg=dict(mode='whole'))
-dataset_type = 'ADE20KDataset'
+dataset_type = 'ColthesDataset'
 data_root = 'data'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
@@ -85,7 +85,7 @@ data = dict(
     samples_per_gpu=4,
     workers_per_gpu=4,
     train=dict(
-        type='ADE20KDataset',
+        type='ColthesDataset',
         data_root='/HOME/scz0bbt/run/mmsegmentation/data',
         img_dir='img/train',
         ann_dir='ann/train',
@@ -106,7 +106,7 @@ data = dict(
             dict(type='Collect', keys=['img', 'gt_semantic_seg'])
         ]),
     val=dict(
-        type='ADE20KDataset',
+        type='ColthesDataset',
         data_root='/HOME/scz0bbt/run/mmsegmentation/data',
         img_dir='img/val',
         ann_dir='ann/val',
@@ -129,7 +129,7 @@ data = dict(
                 ])
         ]),
     test=dict(
-        type='ADE20KDataset',
+        type='ColthesDataset',
         data_root='/HOME/scz0bbt/run/mmsegmentation/data',
         img_dir='img/val',
         ann_dir='ann/val',
